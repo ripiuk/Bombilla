@@ -39,5 +39,4 @@ class ObjectList(generics.ListAPIView):
     serializer_class = ObjectSerilizer
 
     def get_queryset(self):
-        number = self.request.number
-        return Object.objects.filter(number=number)
+        return Object.objects.filter(number=self.kwargs['number'])

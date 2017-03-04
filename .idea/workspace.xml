@@ -76,8 +76,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bombdata/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="42" column="50" lean-forward="false" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+            <state relative-caret-position="461">
+              <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -129,8 +129,8 @@
         <option value="$PROJECT_DIR$/bombdata/pagination.py" />
         <option value="$PROJECT_DIR$/bombdata/models.py" />
         <option value="$PROJECT_DIR$/bombdata/serializers.py" />
-        <option value="$PROJECT_DIR$/bombdata/views.py" />
         <option value="$PROJECT_DIR$/Bombilla/urls.py" />
+        <option value="$PROJECT_DIR$/bombdata/views.py" />
       </list>
     </option>
   </component>
@@ -593,8 +593,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bombdata/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="42" column="50" lean-forward="false" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
+        <state relative-caret-position="461">
+          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
