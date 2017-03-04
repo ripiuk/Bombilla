@@ -1,1 +1,1 @@
-web: gunicorn Bombilla.wsgi
+web: gunicorn Bombilla.wsgi --log-file -
