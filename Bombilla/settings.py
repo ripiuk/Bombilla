@@ -46,9 +46,13 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         #'rest_framework.permissions.IsAuthenticated',
+
     ],
+    'DEFAULT_PAGINATION_CLASS': 'bombdata.pagination.PageNumberPaginationDataOnly',
     'PAGE_SIZE': 10
 }
+
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

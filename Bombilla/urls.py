@@ -20,13 +20,16 @@ from bombdata import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+#router.register(r'groups', views.GroupViewSet)
 router.register(r'objects', views.ObjectViewSet)
+router.register(r'number', views.NumberViewSet)
 router.register(r'news', views.NewsViewSet)
-router.register(r'user_info', views.UsersViewSet)
+router.register(r'reports', views.ReportViewSet)
+router.register(r'user_info', views.UserInfoViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url('^objects/(?P<number>.+)/$', views.ObjectList.as_view()),
 ]
