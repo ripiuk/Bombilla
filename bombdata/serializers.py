@@ -45,6 +45,7 @@ class ObjectSerilizer(serializers.ModelSerializer):
         model = Object
         fields = ('url', 'id', 'user', 'user_first_name', 'user_middle_name', 'user_last_name', 'user_phone', 'user_admin', 'number', 'number_info', 'geo_x', 'geo_y', 'filling', 'activity')
 
+
 class NumberSerializer(serializers.ModelSerializer):
     objectss = ObjectSerilizer(many =True, read_only=True)
     class Meta:
