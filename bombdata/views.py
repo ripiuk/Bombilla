@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from .models import Object, News, Number, Report, UserInfo
 from .serializers import UserSerializer, ObjectSerilizer, NewsSerializer, NumberSerializer, ReportSerializer, UserInfoSerializer
-from .filters import ObjectFilter
+#from .filters import ObjectFilter
 #from django.http import request
 #import django_filters
 #from django_filters.rest_framework import
