@@ -3,9 +3,9 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets, generics
 from .models import Object, News, Number, Report, UserInfo
 from .serializers import UserSerializer, ObjectSerilizer, NewsSerializer, NumberSerializer, ReportSerializer, UserInfoSerializer
-from django.http import request
-import django_filters
-from django_filters.rest_framework import DjangoFilterBackend
+#from django.http import request
+#import django_filters
+#from django_filters.rest_framework import DjangoFilterBackend
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
