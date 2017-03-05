@@ -64,13 +64,13 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     serializer_class = UserInfoSerializer
 
 
-class ObjectList(generics.ListAPIView):
+"""class ObjectList(generics.ListAPIView):
     queryset = Object.objects.all()
     serializer_class = ObjectSerilizer
     filter_class = ObjectFilter
     pagination_class = None
 
-""" def get_queryset(self):
+def get_queryset(self):
         filling = self.request.GET.get('filling', None)
         if filling:
             return Object.objects.all().filter(filling=filling)
