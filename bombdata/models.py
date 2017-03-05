@@ -43,13 +43,13 @@ class Object(models.Model):
         return '%d: %s' % (self.filling, self.activity)
 '''
 class News(models.Model):
-    user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserInfo, on_delete=models.CASCADE, blank=True, null=True)
     importance = models.IntegerField()
     text = models.CharField(max_length=500)
     inside_bool = models.BooleanField()
     geo_x = models.FloatField()
     geo_y = models.FloatField()
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver', blank=True, null=True)
+    receiver = models.ForeignKey(UserInfo, on_delete=models.CASCADE, related_name='receiver', blank=True, null=True)
     date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
