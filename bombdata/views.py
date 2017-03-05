@@ -60,17 +60,17 @@ class ObjectList(generics.ListCreateAPIView):
         else:
             return Object.objects.all()
 
-class ObjectList(generics.ListAPIView):
+"""class ObjectList(generics.ListAPIView):
     queryset = Object.objects.all()
     serializer_class = ObjectSerilizer
     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
     filter_fields=('filling',)
 
-    """def get_queryset(self):
+    def get_queryset(self):
         #queryset = super(ObjectList, self).get_queryset()
         #return queryset.filter(object__pk=self.kwargs.get('pk'))
         pk = request.GET.get('filling')
-        return Object.objects.filter(filling=filling)"""
+        return Object.objects.filter(filling=filling)
 
     def get_queryset(self):
-        return Object.objects.filter(filling=self.kwargs['filling'])
+        return Object.objects.filter(filling=self.kwargs['filling'])"""
