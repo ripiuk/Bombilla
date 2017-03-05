@@ -47,8 +47,8 @@ class News(models.Model):
     importance = models.IntegerField()
     text = models.CharField(max_length=500)
     inside_bool = models.BooleanField()
-    geo_x = models.IntegerField()
-    geo_y = models.IntegerField()
+    geo_x = models.FloatField()
+    geo_y = models.FloatField()
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver', blank=True, null=True)
     date_time = models.DateTimeField(auto_now_add=True)
 

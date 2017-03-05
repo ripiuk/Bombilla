@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url('^objects/(?P<number>.+)/$', views.ObjectList.as_view()),
+    #url('^objects/(?P<filling>.+)/$', views.ObjectList.as_view()),
 ]
