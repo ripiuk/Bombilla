@@ -12,6 +12,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import ObjectSerilizer
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
@@ -22,6 +27,7 @@ class ExampleView(APIView):
 
     def get(self, request, format=None):
         content = {
+            'id' : unicode(request.user.id),
             'user': unicode(request.user),  # `django.contrib.auth.User` instance.
             'auth': unicode(request.auth),  # None
         }
@@ -33,19 +39,8 @@ class ExampleView(APIView):
 """
 
 class ObjectViewSet(viewsets.ModelViewSet):
-    #premission_classes = (IsAuthenticated, )
     queryset = Object.objects.all()
     serializer_class = ObjectSerilizer
-    #filter_beckends = (DjangoFilterBackend,)
-    #filter_fields = ('object', 'object__filling',)
-    """def get_queryset(self):
-
-        queryset = Object.objects.all()
-        submission = self.request.query_params.get('filling', None)
-        if submission is not None:
-            queryset = queryset.filter(filling=filling)
-
-        return queryset"""
 
 class NewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
@@ -63,31 +58,19 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
 
+@api_view(['GET', 'POST'])
+def object_list(request):
+    """
+    List all snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        snippets = Snippet.objects.all()
+        serializer = SnippetSerializer(snippets, many=True)
+        return Response(serializer.data)
 
-"""class ObjectList(generics.ListAPIView):
-    queryset = Object.objects.all()
-    serializer_class = ObjectSerilizer
-    filter_class = ObjectFilter
-    pagination_class = None
-
-def get_queryset(self):
-        filling = self.request.GET.get('filling', None)
-        if filling:
-            return Object.objects.all().filter(filling=filling)
-        else:
-            return Object.objects.all()
-
-class ObjectList(generics.ListAPIView):
-    queryset = Object.objects.all()
-    serializer_class = ObjectSerilizer
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-    filter_fields=('filling',)
-
-    def get_queryset(self):
-        #queryset = super(ObjectList, self).get_queryset()
-        #return queryset.filter(object__pk=self.kwargs.get('pk'))
-        pk = request.GET.get('filling')
-        return Object.objects.filter(filling=filling)
-
-    def get_queryset(self):
-        return Object.objects.filter(filling=self.kwargs['filling'])"""
+    elif request.method == 'POST':
+        serializer = SnippetSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

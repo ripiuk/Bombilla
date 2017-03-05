@@ -63,3 +63,5 @@ class ReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Report
         fields = ('user', 'user_infos',  'url', 'id', 'user', 'user_first_name', 'user_middle_name', 'user_last_name', 'user_phone', 'user_admin', 'text')
+
+
