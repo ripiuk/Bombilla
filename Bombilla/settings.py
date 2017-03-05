@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bombdata.apps.BombdataConfig',
     'rest_framework',
-    'crispy_forms',
-    'django_filters',
+    #'crispy_forms',
+    #'django_filters',
 ]
 
 REST_FRAMEWORK = {
@@ -51,7 +51,7 @@ REST_FRAMEWORK = {
 
     ],
     'DEFAULT_PAGINATION_CLASS': 'bombdata.pagination.PageNumberPaginationDataOnly',
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    #'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     #'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'PAGE_SIZE': 10
 }
