@@ -47,7 +47,7 @@ class ObjectSerilizer(serializers.ModelSerializer):
 
 
 class NumberSerializer(serializers.ModelSerializer):
-    objectss = ObjectSerilizer(many =True, read_only=True)
+    objectss = ObjectSerilizer(many =True, read_only=False)
     class Meta:
         model = Number
         fields = ('url', 'id', 'number', 'objectss')

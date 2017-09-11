@@ -58,19 +58,16 @@ class UserInfoViewSet(viewsets.ModelViewSet):
     queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
 
-@api_view(['GET', 'POST'])
-def object_list(request):
-    """
-    List all snippets, or create a new snippet.
-    """
+''''@api_view(['GET', 'POST'])
+def number_collection(request):
     if request.method == 'GET':
-        snippets = Snippet.objects.all()
-        serializer = SnippetSerializer(snippets, many=True)
+        number = Number.objects.all()
+        serializer = ObjectSerilizer(number, many=True)
         return Response(serializer.data)
-
     elif request.method == 'POST':
-        serializer = SnippetSerializer(data=request.data)
+        data = {'number': request.DATA.get('number')}
+        serializer = NumberSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)'''

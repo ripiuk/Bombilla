@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url('^is_auth/', views.ExampleView.as_view()),
+    #url(r'^api/v1/numbers/(?P<id>[0-9]+)$', views.number_collection),
 ]
 #urlpatterns = format_suffix_patterns(urlpatterns)
